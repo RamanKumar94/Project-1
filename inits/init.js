@@ -15,10 +15,16 @@ async function main() {
     mongoose.connect(MONGO_URL);
 };
 
-
+let categories = ["Trending","Mountains", "Camping", "Rooms", "Amazing Pools", "Iconic Cities", "Castles", "Farms", "Arctic", "Domes", "Boats"]
 const initdb = async () => {
     await Listing.deleteMany({});
-    initdata.data = initdata.data.map((obj) => ({...obj, owner: "680a5a31c61713353f63777c"}));
+    initdata.data = initdata.data.map((obj) => (
+        {...obj, 
+            owner: "680a5a31c61713353f63777c",
+            category: categories[Math.floor(Math.random() * categories.length)],
+        }
+    ));
+
     await Listing.insertMany(initdata.data);
     console.log("Data was saved to db");
 };

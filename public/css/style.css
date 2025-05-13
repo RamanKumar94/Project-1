@@ -1,7 +1,5 @@
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
 }
 
@@ -17,12 +15,109 @@ body {
 }
 
 .fa-compass {
+    margin-bottom: auto;
     color: #fe424d;
     font-size: 2rem;
 }
 
 .nav-link {
     color: #222222 !important;
+}
+
+/* Search button */
+.search-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border-radius: 25px !important;
+    padding: 0 1rem 0 1rem !important;
+}
+
+.search-btn:hover{
+    background-color: #fe424d !important;
+    color: white !important;
+}
+
+.search-btn i {
+    display: inline !important;
+    margin-right: 0.5rem !important;
+}
+
+.search-inp{
+    border-radius: 25px !important;
+    padding: 0.15rem 2rem 0.15rem 2rem !important;
+    font-size: 0.8rem !important;
+}
+
+.navbar-toggler{
+    margin-bottom: auto !important;
+}
+
+.toggle-btn {
+    height: 16px !important;
+    width: 16px !important;
+    
+}
+
+
+/* filters */
+#filters{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center !important;
+    align-content: center !important;
+    top: 48px; 
+    z-index: 1020; 
+    background: white;
+    width: 59rem;
+}
+
+.filter {
+    text-align: center;
+    margin-right: 2rem;
+    opacity: 0.5;
+}
+
+.filter a{
+    text-decoration: none;
+    color: black;
+}
+
+.filter div{
+    margin-top: 0.6rem;
+}
+
+.filter:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter p{
+    font-size: 0.4rem;
+}
+
+.tax-toggale{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 2.5rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+}
+
+
+@media (max-width: 450px) {
+    .form-check-label{
+        display: none;
+    }
+}
+
+.tax-info{
+    display: none;
 }
 
 
@@ -55,10 +150,13 @@ body {
     text-align: center;
 }
 
+
 /* Cards */
 .listing-card {
     border: none !important;
+    margin-top: 1rem;
     margin-bottom: 2rem !important;
+    margin-left: 0.1px;
     text-decoration: none !important;
 }
 
@@ -120,8 +218,3 @@ body {
 .btns {
     display: flex;
 }
-
-/* flash page */
-/* .flash {
-    padding-bottom: 1rem; 
-} */
