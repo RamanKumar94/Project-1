@@ -22,8 +22,8 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 
-let MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-// const dbUrl = process.env.ATLASTDB_URL;
+
+const dbUrl = process.env.ATLASTDB_URL;
 
 main()
 .then(res => {
@@ -34,7 +34,7 @@ main()
 });
 
 async function main() {
-    mongoose.connect(MONGO_URL);
+    mongoose.connect(dbUrl);
 };
 
 app.set("view engine", "ejs");
@@ -45,9 +45,9 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-    mongoUrl: MONGO_URL,
+    mongoUrl: dbUrl,
     crypto: {
-        secret: "mysupersecretcodemkskc",
+        secret: process.env.SECRET,
     },
     touchAfter: 24 * 3600
 });
@@ -58,7 +58,7 @@ store.on("error", () => {
 
 const sessionOptions = {
     store,
-    secret: "mysupersecretcodemkskc",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
