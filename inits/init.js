@@ -15,6 +15,7 @@ async function main() {
     mongoose.connect(MONGO_URL);
 };
 
+
 let categories = ["Trending","Mountains", "Camping", "Rooms", "Amazing Pools", "Iconic Cities", "Castles", "Farms", "Arctic", "Domes", "Boats"]
 const initdb = async () => {
     await Listing.deleteMany({});
